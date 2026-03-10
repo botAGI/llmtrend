@@ -1,0 +1,62 @@
+# ============================================================================
+# Docker build context exclusions
+# ============================================================================
+
+# Version control
+.git
+.gitignore
+
+# Python caches
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv
+venv
+env
+
+# Environment files (secrets)
+.env
+.env.*
+!.env.example
+
+# Tooling caches
+.mypy_cache
+.pytest_cache
+.ruff_cache
+.coverage
+htmlcov
+
+# Generated reports (mounted as volume)
+reports/*.md
+reports/*.html
+
+# Tests (not needed in production images)
+tests/
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# IDE / Editor
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Claude Code
+.claude/
+
+# Docker files (avoid recursive context)
+docker-compose*.yml
+Dockerfile*
+.dockerignore
+
+# OS files
+.DS_Store
+Thumbs.db

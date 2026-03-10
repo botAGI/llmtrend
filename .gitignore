@@ -1,0 +1,77 @@
+# ============================================================================
+# AI Trend Monitor - Git Ignore
+# ============================================================================
+
+# ── Python ─────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.Python
+develop-eggs/
+eggs/
+lib/
+lib64/
+sdist/
+var/
+wheels/
+
+# ── Virtual environments ──────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Environment files (secrets) ───────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── IDE / Editors ─────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ── Testing & quality ────────────────────────────────────────────────────
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Generated reports (kept on volume, not in repo) ──────────────────────
+reports/*.md
+reports/*.html
+reports/*.json
+
+# ── Docker ────────────────────────────────────────────────────────────────
+# Ignore Docker data volumes if stored locally
+docker-data/
+
+# ── OS files ──────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── Jupyter (if used for ad-hoc analysis) ─────────────────────────────────
+.ipynb_checkpoints/
+
+# ── Celery ────────────────────────────────────────────────────────────────
+celerybeat-schedule
+celerybeat-schedule.db
+celerybeat.pid
+
+# ── Ollama models (downloaded locally) ────────────────────────────────────
+.ollama/
