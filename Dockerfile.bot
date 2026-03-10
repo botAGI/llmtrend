@@ -1,0 +1,33 @@
+# ============================================================================
+# Dockerfile for AI Trend Monitor - Telegram Bot
+# ============================================================================
+
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+# Create a non-root user
+RUN groupadd --gid 1000 appuser \
+    && useradd --uid 1000 --gid appuser --create-home --shell /bin/bash appuser
+
+WORKDIR /app
+
+# Copy and install Python requirements (cached layer)
+COPY requirements/base.txt requirements/base.txt
+COPY requirements/bot.txt requirements/bot.txt
+RUN pip install --no-cache-dir -r requirements/bot.txt
+
+# Copy bot source and shared config
+COPY bot/ bot/
+COPY app/__init__.py app/__init__.py
+COPY app/config.py app/config.py
+
+# Set ownership
+RUN chown -R appuser:appuser /app
+
+USER appuser
+
+CMD ["python", "-m", "bot.main"]
