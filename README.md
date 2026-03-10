@@ -1,2 +1,1 @@
-# llmtrend
-llm trend scaner 
+
